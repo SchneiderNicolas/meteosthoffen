@@ -9,12 +9,12 @@ type MainLayoutProps = {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div>
+    <>
       <Sidebar>
         <Background>{children}</Background>
         <Footer />
       </Sidebar>
-    </div>
+    </>
   );
 };
 

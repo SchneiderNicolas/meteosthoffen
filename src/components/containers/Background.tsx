@@ -1,12 +1,14 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useContext } from 'react';
+import { ThemeContext } from '../sidebar/Sidebar';
 
 type BackgroundProps = {
   children?: ReactNode;
 };
 
-const BACKGROUND_BAR_COLOR = 'hsl(240,100%,50%)';
-
 const Background = ({ children }: BackgroundProps) => {
+  const theme = useContext(ThemeContext);
+  const BACKGROUND_BAR_COLOR =
+    theme === 'dark' ? 'hsl(253, 53%, 24%)' : 'hsl(33, 100%, 50%)';
   return (
     <section className="relative z-[1] min-h-screen bg-white dark:bg-zinc-900">
       <div className="relative z-[2]">

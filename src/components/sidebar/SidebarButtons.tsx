@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { IoHomeSharp } from 'react-icons/io5';
+import { IoPartlySunnyOutline } from 'react-icons/io5';
 
 type SidebarButtonsProps = {
   navigateHome: () => void;
@@ -17,7 +17,7 @@ type SidebarButtonProps = {
 const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
   return (
     <div
-      className="cursor-pointer flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700"
+      className="cursor-pointer flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-rajah dark:hover:bg-martinique"
       onClick={onClick}
     >
       {icon}
@@ -31,12 +31,22 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
     <div className={classNames('space-y-3 mt-8', isMobile && 'mt-10')}>
       <SidebarButton
         name="Meteo"
-        icon={<IoHomeSharp size={30} color={'#262626'} />}
+        icon={
+          <IoPartlySunnyOutline
+            size={30}
+            className="text-zinc-900 dark:text-zinc-50"
+          />
+        }
         onClick={navigateHome}
       />
       <SidebarButton
         name="Prévisions"
-        icon={<IoHomeSharp size={30} color={'#262626'} />}
+        icon={
+          <IoPartlySunnyOutline
+            size={30}
+            className="text-zinc-900 dark:text-zinc-50"
+          />
+        }
         onClick={navigateHome}
       />
     </div>

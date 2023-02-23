@@ -15,7 +15,9 @@ const SidebarHeader = ({
   return (
     <div className="flex p-2">
       <button onClick={navigateHome}>
-        <div>MeteOsthoffen</div>
+        <div>
+          Mete<b>O</b>sthoffen
+        </div>
       </button>
       {isMobile && (
         <IoArrowBack
