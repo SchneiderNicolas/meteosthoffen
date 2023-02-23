@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { IoPartlySunnyOutline } from 'react-icons/io5';
+import { IoPartlySunnyOutline, IoCalendarOutline } from 'react-icons/io5';
 
 type SidebarButtonsProps = {
   navigateHome: () => void;
@@ -42,7 +42,7 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
       <SidebarButton
         name="Prévisions"
         icon={
-          <IoPartlySunnyOutline
+          <IoCalendarOutline
             size={30}
             className="text-zinc-900 dark:text-zinc-50"
           />
