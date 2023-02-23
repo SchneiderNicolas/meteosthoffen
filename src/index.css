@@ -2,13 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --darkbg: #251d29;
+  --darkt: #ffd1f7;
+  --lightbg: #fff;
+  --lightt: #d43370;
+
+  --toggleHeight: 16em;
+  --toggleWidth: 30em;
+  --toggleBtnRadius: 10em;
+
+  --bgColor--night: #423966;
+  --toggleBtn-bgColor--night: var(--bgColor--night);
+  --bgColor--day: #9ee3fb;
+  --toggleBtn-bgColor--day: var(--bgColor--day);
+}
+
 body {
+  overflow: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body * {
+  @apply transition-colors duration-500;
 }
 
 code {
