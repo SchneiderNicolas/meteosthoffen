@@ -13,11 +13,14 @@ const SidebarHeader = ({
   toggle,
 }: SidebarHeaderProps) => {
   return (
-    <div className="flex p-2">
-      <button onClick={navigateHome}>
-        <div>
-          Mete<b>O</b>sthoffen
-        </div>
+    <div className="flex p-2 justify-center">
+      <button
+        className="bg-rajah dark:bg-martinique px-4 py-2 rounded-lg"
+        onClick={navigateHome}
+      >
+        <span className="text-2xl font-extrabold text-zinc-50">
+          MeteOsthoffen
+        </span>
       </button>
       {isMobile && (
         <IoArrowBack

@@ -9,7 +9,11 @@ module.exports = {
       colors: {
         'martinique': '#423866',
         'rajah': '#FFBF71'
-      }
+      },
+      fontFamily: {
+        'Supreme': ['Supreme', 'sans-serif'],
+        'Monoton': ['Monoton', 'cursive']
+     },
     },
   },
   plugins: [],

@@ -43,7 +43,7 @@ const Sidebar = ({ children }: SidebarProps) => {
           )}
           aria-label="Sidebar"
         >
-          <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-zinc-800">
+          <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-zinc-800 transition-colors duration-300">
             <SidebarHeader
               navigateHome={() => console.log('/')}
               isMobile={isMobile}
