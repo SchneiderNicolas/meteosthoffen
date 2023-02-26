@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoArrowBack } from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5';
 
 type SidebarHeaderProps = {
   navigateHome: () => void;
@@ -13,21 +13,17 @@ const SidebarHeader = ({
   toggle,
 }: SidebarHeaderProps) => {
   return (
-    <div className="flex p-2 justify-center">
-      <button
-        className="bg-rajah dark:bg-martinique px-4 py-2 rounded-lg"
-        onClick={navigateHome}
-      >
-        <span className="text-2xl font-extrabold text-zinc-50">
+    <div className="flex justify-between items-center">
+      <button className="px-4 py-2 rounded-lg" onClick={navigateHome}>
+        <span className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-50">
           MeteOsthoffen
         </span>
       </button>
       {isMobile && (
-        <IoArrowBack
-          className="absolute right-0 mr-4"
+        <IoClose
+          className="p-2 text-sm text-zinc-900 dark:text-zinc-50 rounded-lg"
           onClick={toggle}
-          size={30}
-          color={'#262626'}
+          size={50}
         />
       )}
     </div>

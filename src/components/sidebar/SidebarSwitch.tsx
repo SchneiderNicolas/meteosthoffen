@@ -28,13 +28,13 @@ const SidebarSwitch = ({ colorTheme, setTheme }: SidebarSwitchProps) => {
       <div
         onClick={toggleDarkMode}
         className={classNames(
-          'toggle-theme relative rounded-full transition-all duration-500 ease-in-out',
-          isActive ? 'bg-martinique' : 'bg-rajah'
+          'toggle-theme relative rounded-full transition-all duration-500 ease-in-out cursor-pointer',
+          isActive ? 'bg-paua' : 'bg-chardonnay'
         )}
       >
         <div
           className={classNames(
-            'moon bg-martinique absolute block rounded-full transition-all duration-500 ease-in-out',
+            'moon bg-paua absolute block rounded-full transition-all duration-500 ease-in-out',
             !isActive && 'sun'
           )}
         ></div>
