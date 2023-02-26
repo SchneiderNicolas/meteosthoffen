@@ -6,7 +6,6 @@ import { useResponsive } from '../../hooks/useResponsive';
 import { useSideBar } from '../../hooks/useSideBar';
 import SidebarHeader from './SidebarHeader';
 import SidebarButtons from './SidebarButtons';
-
 import SidebarSwitch from './SidebarSwitch';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -28,22 +27,23 @@ const Sidebar = ({ children }: SidebarProps) => {
 
   return (
     <ThemeContext.Provider value={themeProvider}>
-      <nav>
-        <IoMenu
-          className="inline-flex items-center p-2 mt-3 ml-3 text-sm rounded-lg md:hidden"
-          onClick={toggle}
-          size={50}
-          color={'#262626'}
-        />
+      <nav className="bg-white dark:bg-black-800">
+        {!isOpen && (
+          <IoMenu
+            className="absolute left-0 top-0 z-50 p-2 mt-3 ml-3 text-sm text-zinc-900 dark:text-zinc-50 rounded-lg md:hidden"
+            onClick={toggle}
+            size={50}
+          />
+        )}
         <aside
           id="default-sidebar"
           className={classNames(
-            'fixed top-0 left-0 z-40 w-60 h-screen transition-transform md:translate-x-0',
+            'fixed top-0 left-0 z-40 md:w-60 w-80 h-screen transition-transform md:translate-x-0',
             !isOpen && '-translate-x-full'
           )}
           aria-label="Sidebar"
         >
-          <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-zinc-800 transition-colors duration-300">
+          <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-black-700 transition-colors duration-300">
             <SidebarHeader
               navigateHome={() => console.log('/')}
               isMobile={isMobile}
@@ -56,7 +56,13 @@ const Sidebar = ({ children }: SidebarProps) => {
             <SidebarSwitch colorTheme={colorTheme} setTheme={setTheme} />
           </div>
         </aside>
-        <div className="md:ml-60 bg-white">{children}</div>
+        {isOpen ? (
+          <div onClick={toggle} className="md:ml-60">
+            {children}
+          </div>
+        ) : (
+          <div className="md:ml-60">{children}</div>
+        )}
       </nav>
     </ThemeContext.Provider>
   );

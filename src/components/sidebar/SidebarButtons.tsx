@@ -17,7 +17,7 @@ type SidebarButtonProps = {
 const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
   return (
     <div
-      className="cursor-pointer flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-rajah dark:hover:bg-martinique"
+      className="cursor-pointer w-60 md:w-full flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-peach dark:hover:bg-paua"
       onClick={onClick}
     >
       {icon}

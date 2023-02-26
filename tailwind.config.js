@@ -7,8 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'martinique': '#423866',
-        'rajah': '#FFBF71'
+        'bunting': '#1E206D',
+        'peach': '#FFEEDB',
+        'paua': '#24036B',
+        'chardonnay': '#FFCA8F',
+        black: {
+          900: '#000000',
+          800: "#111111",
+          700: "#1E1E1E",
+        },
       },
       fontFamily: {
         'Supreme': ['Supreme', 'sans-serif'],

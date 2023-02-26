@@ -8,9 +8,9 @@ type BackgroundProps = {
 const Background = ({ children }: BackgroundProps) => {
   const theme = useContext(ThemeContext);
   const BACKGROUND_BAR_COLOR =
-    theme === 'dark' ? 'hsl(253, 53%, 24%)' : 'hsl(33, 100%, 50%)';
+    theme === 'dark' ? 'hsl(259, 95%, 22%)' : 'hsl(32, 100%, 78%)';
   return (
-    <section className="relative z-[1] min-h-screen bg-white dark:bg-zinc-900 transition-colors duration-300">
+    <section className="relative z-[1] min-h-screen bg-white dark:bg-black-800 transition-colors duration-300">
       <div className="relative z-[2]">
         {children}
         <div className="h-[600px]"></div>
