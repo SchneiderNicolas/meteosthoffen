@@ -3,26 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --darkbg: #251d29;
-  --darkt: #ffd1f7;
-  --lightbg: #fff;
-  --lightt: #d43370;
-
-  --toggleHeight: 16em;
-  --toggleWidth: 30em;
-  --toggleBtnRadius: 10em;
-
-  --bgColor--night: #423966;
-  --toggleBtn-bgColor--night: var(--bgColor--night);
-  --bgColor--day: #9ee3fb;
-  --toggleBtn-bgColor--day: var(--bgColor--day);
-}
-
 body {
-  overflow: hidden;
+  @apply bg-white dark:bg-black-800;
   margin: 0;
   @apply font-Supreme;
+}
+
+body * {
+  @apply transition-colors duration-300;
 }
 
 /**

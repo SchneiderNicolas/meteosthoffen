@@ -17,7 +17,7 @@ type SidebarButtonProps = {
 const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
   return (
     <div
-      className="cursor-pointer w-60 md:w-full flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-peach dark:hover:bg-paua"
+      className="cursor-pointer w-60 md:w-full flex items-center p-2 text-base font-semibold text-zinc-900 dark:text-zinc-50 rounded-lg hover:bg-peach dark:hover:bg-paua transition-none"
       onClick={onClick}
     >
       {icon}
@@ -34,7 +34,7 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
         icon={
           <IoPartlySunnyOutline
             size={30}
-            className="text-zinc-900 dark:text-zinc-50"
+            className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
         onClick={navigateHome}
@@ -44,7 +44,7 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
         icon={
           <IoCalendarOutline
             size={30}
-            className="text-zinc-900 dark:text-zinc-50"
+            className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
         onClick={navigateHome}
