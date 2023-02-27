@@ -24,7 +24,7 @@ const SidebarSwitch = ({ colorTheme, setTheme }: SidebarSwitchProps) => {
   };
 
   return (
-    <div className="mt-auto mb-4 px-2">
+    <div>
       <div
         onClick={toggleDarkMode}
         className={classNames(
