@@ -9,8 +9,10 @@ module.exports = {
       colors: {
         'bunting': '#1E206D',
         'peach': '#FFEEDB',
-        'paua': '#24036B',
+        'paua': '#24036A',
         'chardonnay': '#FFCA8F',
+        'oyster': '#D9FBFF',
+        'meteorite': '#3B1C7B',
         black: {
           900: '#000000',
           800: "#111111",
