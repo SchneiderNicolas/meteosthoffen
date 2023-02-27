@@ -8,6 +8,7 @@ import SidebarHeader from './SidebarHeader';
 import SidebarButtons from './SidebarButtons';
 import SidebarSwitch from './SidebarSwitch';
 import { useTheme } from '../../hooks/useTheme';
+import SidebarLanguageSelector from './SidebarLanguageSelector';
 
 type SidebarProps = {
   children?: ReactNode;
@@ -53,7 +54,10 @@ const Sidebar = ({ children }: SidebarProps) => {
               navigateHome={() => console.log('/')}
               isMobile={isMobile}
             />
-            <SidebarSwitch colorTheme={colorTheme} setTheme={setTheme} />
+            <div className="flex mt-auto justify-between mb-4 pr-20 md:pr-0">
+              <SidebarLanguageSelector />
+              <SidebarSwitch colorTheme={colorTheme} setTheme={setTheme} />
+            </div>
           </div>
         </aside>
         {isOpen ? (

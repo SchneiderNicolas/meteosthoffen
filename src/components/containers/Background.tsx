@@ -11,10 +11,7 @@ const Background = ({ children }: BackgroundProps) => {
     theme === 'dark' ? 'hsl(259, 95%, 22%)' : 'hsl(32, 100%, 78%)';
   return (
     <section className="relative z-[1] min-h-screen bg-white dark:bg-black-800 transition-colors duration-300">
-      <div className="relative z-[2]">
-        {children}
-        <div className="h-[600px]"></div>
-      </div>
+      <div className="relative z-[2]">{children}</div>
 
       <figure
         className="absolute top-0 left-0 pointer-events-none w-full h-full overflow-hidden z-[1]"
