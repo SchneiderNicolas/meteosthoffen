@@ -7,6 +7,10 @@
     "footer.terms": "Términos",
     "footer.privacy": "Privacidad",
     "footer.cookies": "Preferencias de cookies",
-    "footer.by": "por"
+    "footer.by": "por",
+
+    "404.sorry": "Lo sentimos, no hemos podido encontrar esta página.",
+    "404.redirect": "Pero no se preocupe, puede encontrar muchas otras cosas en nuestra página web.",
+    "404.button": "Volver a la página principal"
 
 }

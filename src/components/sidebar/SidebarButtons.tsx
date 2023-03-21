@@ -2,11 +2,10 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { IoPartlySunnyOutline, IoCalendarOutline } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 type SidebarButtonsProps = {
-  navigateHome: () => void;
   isMobile: boolean;
-  toggle?: () => void;
 };
 
 type SidebarButtonProps = {
@@ -29,10 +28,11 @@ const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
   );
 };
 
-const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
+const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
-    <div className={classNames('space-y-3 mt-8', isMobile && 'mt-10')}>
+    <div className={classNames('space-y-3 mt-4', isMobile && 'mt-6')}>
       <SidebarButton
         name={t('weather')}
         icon={
@@ -41,7 +41,7 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
             className="text-zinc-900 dark:text-zinc-50 transition-none dark:group-hover:text-oyster"
           />
         }
-        onClick={navigateHome}
+        onClick={() => navigate('/')}
       />
       <SidebarButton
         name={t('forecasts')}
@@ -51,7 +51,7 @@ const SidebarButtons = ({ navigateHome, isMobile }: SidebarButtonsProps) => {
             className="text-zinc-900 dark:text-zinc-50 transition-none dark:group-hover:text-oyster"
           />
         }
-        onClick={navigateHome}
+        onClick={() => navigate('/')}
       />
     </div>
   );
