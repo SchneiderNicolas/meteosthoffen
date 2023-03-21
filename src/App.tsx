@@ -1,20 +1,22 @@
 import React from 'react';
-import MainLayout from './components/containers/MainLayout';
-import { useTranslation } from 'react-i18next';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 function App() {
-  const { t } = useTranslation();
   return (
-    <MainLayout>
-      <div className="flex justify-center items-center">
-        <div className="w-full xl:w-256 px-2 sm:px-4 lg:px-8 xl:px-0 pt-20">
-          <div className="flex flex-col justify-center items-center text-neutral-900 dark:text-zinc-300 transition-none">
-            <h1 className="text-2xl">MeteOsthoffen</h1>
-            <p className="mt-2">{t('WIP') + '...'}</p>
-          </div>
-        </div>
-      </div>
-    </MainLayout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

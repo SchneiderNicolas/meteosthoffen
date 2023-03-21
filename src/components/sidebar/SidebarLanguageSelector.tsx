@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoGlobeOutline, IoCheckmarkCircleSharp } from 'react-icons/io5';
-import { useModal } from '../../hooks/useModal';
 import Flag from 'react-world-flags';
 
 const Tooltip = () => {
@@ -15,7 +14,7 @@ const Tooltip = () => {
   return (
     <div className="relative flex items-center group">
       <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex cursor-pointer">
-        <div className="relative z-10 p-2 space-y-2 w-28 bg-peach dark:bg-paua rounded-t-md text-zinc-900 dark:text-zinc-50">
+        <div className="relative z-10 p-2 space-y-2 w-28 bg-chardonnay dark:bg-paua rounded-t-md text-zinc-900 dark:text-zinc-50">
           <div onClick={() => setLanguage('de')} className="flex items-center">
             {i18n.language === 'de' ? (
               <IoCheckmarkCircleSharp
@@ -61,7 +60,7 @@ const Tooltip = () => {
             <span className="ml-2 hover:font-bold">Français</span>
           </div>
         </div>
-        <div className="w-full -mb-1 bg-peach dark:bg-paua" />
+        <div className="w-full -mb-1 bg-chardonnay dark:bg-paua" />
       </div>
     </div>
   );
@@ -69,8 +68,6 @@ const Tooltip = () => {
 
 const SidebarLanguageSelector = () => {
   const { i18n } = useTranslation();
-  const { isOpen, toggle } = useModal();
-  console.log(isOpen, toggle);
 
   const getLanguage = () => {
     switch (i18n.language) {
@@ -88,7 +85,7 @@ const SidebarLanguageSelector = () => {
   };
 
   return (
-    <div className="flex items-center w-28 hover:bg-peach dark:hover:bg-paua pr-3 hover:rounded-b-xl group transition-none">
+    <div className="flex items-center w-28 hover:bg-chardonnay dark:hover:bg-paua pr-3 hover:rounded-b-xl group transition-none">
       <Tooltip></Tooltip>
       <IoGlobeOutline
         className="px-2 py-0 text-sm text-zinc-900 dark:text-zinc-50 dark:group-hover:text-oyster rounded-lg transition-none"

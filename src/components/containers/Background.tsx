@@ -6,7 +6,10 @@ type BackgroundProps = {
 };
 
 const Background = ({ children }: BackgroundProps) => {
-  const theme = useContext(ThemeContext);
+  let theme = useContext(ThemeContext);
+  if (theme === null) {
+    theme = localStorage.theme;
+  }
   const BACKGROUND_BAR_COLOR =
     theme === 'dark' ? 'hsl(259, 95%, 22%)' : 'hsl(32, 100%, 78%)';
   return (
