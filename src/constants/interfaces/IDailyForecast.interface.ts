@@ -6,12 +6,14 @@ export interface IDailyForecast {
   timezone: string;
   timezone_abbreviation: string;
   elevation: number;
-  current_weather: CurrentWeather;
-  hourly_units: HourlyUnits;
-  hourly: Hourly;
+  current_weather: ICurrentWeather;
+  hourly_units: IHourlyUnits;
+  hourly: IHourly;
+  daily_units: IDailyUnits;
+  daily: IDaily;
 }
 
-export interface CurrentWeather {
+export interface ICurrentWeather {
   temperature: number;
   windspeed: number;
   winddirection: number;
@@ -19,16 +21,28 @@ export interface CurrentWeather {
   time: string;
 }
 
-export interface HourlyUnits {
+export interface IHourlyUnits {
   time: string;
   temperature_2m: string;
   precipitation_probability: string;
   weathercode: string;
 }
 
-export interface Hourly {
+export interface IHourly {
   time: string[];
   temperature_2m: number[];
   precipitation_probability: number[];
   weathercode: number[];
+}
+
+export interface IDailyUnits {
+  time: string;
+  sunrise: string;
+  sunset: string;
+}
+
+export interface IDaily {
+  time: string[];
+  sunrise: string[];
+  sunset: string[];
 }

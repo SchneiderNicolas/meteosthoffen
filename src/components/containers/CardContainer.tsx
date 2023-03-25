@@ -11,14 +11,14 @@ type CardContainerProps = {
 const CardContainer = ({ children, title, icon }: CardContainerProps) => {
   const { t } = useTranslation();
   return (
-    <div className="w-full p-2 dark:bg-black-700 bg-slate-50 opacity-80 rounded-lg">
-      <div className="ml-2 flex items-center mb-1">
+    <div className="w-full py-3 px-4 dark:bg-black-700 bg-peach opacity-80 rounded-lg">
+      <div className="flex items-center mb-2">
         {title && (
           <>
             {icon}
             <span
               className={classNames(
-                'text-sm uppercase text-zinc-900 dark:text-zinc-300',
+                'text-sm uppercase text-zinc-900 dark:text-zinc-200',
                 icon && 'ml-2'
               )}
             >
@@ -27,7 +27,7 @@ const CardContainer = ({ children, title, icon }: CardContainerProps) => {
           </>
         )}
       </div>
-      <hr className="mb-2 border-zinc-900 dark:border-zinc-300 rounded" />
+      <hr className="mb-3 border-zinc-900 dark:border-zinc-200 rounded" />
       {children}
     </div>
   );

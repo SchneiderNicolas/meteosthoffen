@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import { IDailyForecast } from '../constants/interfaces/IDailyForecast';
+import { IDailyForecast } from '../constants/interfaces/IDailyForecast.interface';
 import { URL_DAILY_FORECAST } from '../constants/urls';
 import fetcher from '../utils/fetcher';
 
