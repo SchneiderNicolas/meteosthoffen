@@ -21,7 +21,6 @@ module.exports = {
       },
       fontFamily: {
         'Supreme': ['Supreme', 'sans-serif'],
-        'Monoton': ['Monoton', 'cursive'],
         'Stretch': ['Stretch', 'cursive']
      },
       width: {
