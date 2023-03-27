@@ -84,9 +84,8 @@ const DailyForecast = () => {
         const time =
           parseInt(dailyForecast?.hourly.time[index].slice(11, 13), 10) * 100;
         return (
-          <>
+          <div key={index} className="flex">
             <ForecastPerHours
-              key={index}
               temperature={dailyForecast?.hourly.temperature_2m[index]}
               weathercode={dailyForecast?.hourly.weathercode[index]}
               type={
@@ -112,7 +111,7 @@ const DailyForecast = () => {
                 type={DayNightType.SUNSET}
               />
             )}
-          </>
+          </div>
         );
       }
     }
