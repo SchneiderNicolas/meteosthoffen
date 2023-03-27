@@ -449,6 +449,22 @@ export default class WMOCodeEnum {
     './assets/weather_icons/Mix_Rainfall_Night.png'
   );
 
+  public static readonly SUNRISE = new WMOCodeEnum(
+    'SUNRISE',
+    'sunrise',
+    -1,
+    DayNightType.SUNRISE,
+    './assets/weather_icons/Tornado.png'
+  );
+
+  public static readonly SUNSET = new WMOCodeEnum(
+    'SUNSET',
+    'sunset',
+    -2,
+    DayNightType.SUNSET,
+    './assets/weather_icons/Tornado.png'
+  );
+
   private static readonly mMap = new Map([
     ['CLEAR_SKY_D', WMOCodeEnum.CLEAR_SKY_D],
     ['CLEAR_SKY_N', WMOCodeEnum.CLEAR_SKY_N],
@@ -506,6 +522,8 @@ export default class WMOCodeEnum {
     ['THUNDERSTORM_HAIL_SLIGHT_N', WMOCodeEnum.THUNDERSTORM_HAIL_SLIGHT_N],
     ['THUNDERSTORM_HAIL_HEAVY_D', WMOCodeEnum.THUNDERSTORM_HAIL_HEAVY_D],
     ['THUNDERSTORM_HAIL_HEAVY_N', WMOCodeEnum.THUNDERSTORM_HAIL_HEAVY_N],
+    ['SUNRISE', WMOCodeEnum.SUNRISE],
+    ['SUNSET', WMOCodeEnum.SUNSET],
   ]);
 
   readonly key: string;

@@ -5,45 +5,26 @@ import CardContainer from './CardContainer';
 import { DayNightType } from '../../constants/enum/DayNight.enum';
 import WMOCodeEnum from '../../constants/enum/WMOCode.enum';
 import { useTranslation } from 'react-i18next';
+import { dateConverter } from '../../utils/dateConverter';
 
 type ForecastPerHoursProps = {
-  wmoCode: number;
-  type: DayNightType;
-};
-
-type ForecastCurrentProps = {
   temperature: number | undefined;
   weathercode: number | undefined;
   type: DayNightType;
+  time: string;
 };
 
-const ForecastPerHours = ({ wmoCode, type }: ForecastPerHoursProps) => {
-  return (
-    <div className="flex flex-shrink-0 flex-col items-center w-20 sm:w-24 mb-4">
-      <span className="text-zinc-900 dark:text-white font-medium mb-3">
-        {WMOCodeEnum.findFromCode(wmoCode, type).name}
-      </span>
-      <img
-        className="w-6 h-6 object-scale-down"
-        src={WMOCodeEnum.findFromCode(wmoCode, type).image}
-      ></img>
-      <span className="text-zinc-900 dark:text-white font-medium mt-3">
-        12°
-      </span>
-    </div>
-  );
-};
-
-const ForecastCurrent = ({
+const ForecastPerHours = ({
   temperature,
   weathercode,
   type,
-}: ForecastCurrentProps) => {
+  time,
+}: ForecastPerHoursProps) => {
   const { t } = useTranslation();
   return (
     <div className="flex flex-shrink-0 flex-col items-center w-20 sm:w-24 mb-4">
       <span className="text-zinc-900 dark:text-white font-medium mb-3">
-        {t('forecast.now')}
+        {t('forecast.' + time)}
       </span>
       <img
         className="w-6 h-6 object-scale-down"
@@ -56,13 +37,87 @@ const ForecastCurrent = ({
   );
 };
 
+type SunriseSunsetProps = {
+  time: string;
+  weathercode: number | undefined;
+  type: DayNightType;
+};
+
+const SunriseSunset = ({ time, weathercode, type }: SunriseSunsetProps) => {
+  const { t } = useTranslation();
+  return (
+    <div className="flex flex-shrink-0 flex-col items-center w-20 sm:w-24 mb-4">
+      <span className="text-zinc-900 dark:text-white font-medium mb-3">
+        {localStorage.getItem('language') === 'en' ? dateConverter(time) : time}
+      </span>
+      <img
+        className="w-6 h-6 object-scale-down"
+        src={WMOCodeEnum.findFromCode(weathercode, type).image}
+      ></img>
+      <span className="text-zinc-900 dark:text-white font-medium mt-3">
+        {t(WMOCodeEnum.findFromCode(weathercode, type).name)}
+      </span>
+    </div>
+  );
+};
+
 const DailyForecast = () => {
   const { dailyForecast, isLoading, isError } = useDailyForecast();
 
   if (isLoading) return <div>LOADING</div>;
   if (isError) return <div>ERROR</div>;
 
-  console.log(dailyForecast, isLoading, isError);
+  const sunset =
+    parseInt(dailyForecast?.daily.sunset[0].slice(11, 13)!, 10) * 100 +
+    parseInt(dailyForecast?.daily.sunset[0].slice(14, 16)!, 10);
+  const sunrise =
+    parseInt(dailyForecast?.daily.sunrise[0].slice(11, 13)!, 10) * 100 +
+    parseInt(dailyForecast?.daily.sunrise[0].slice(14, 16)!, 10);
+  const currentTime = parseInt(
+    dailyForecast?.current_weather.time.slice(11, 13)!,
+    10
+  );
+
+  const ListForecastPerHours = dailyForecast?.hourly.temperature_2m.map(
+    function (_, index) {
+      if (index > currentTime && index < currentTime + 26) {
+        const time =
+          parseInt(dailyForecast?.hourly.time[index].slice(11, 13), 10) * 100;
+        return (
+          <>
+            <ForecastPerHours
+              key={index}
+              temperature={dailyForecast?.hourly.temperature_2m[index]}
+              weathercode={dailyForecast?.hourly.weathercode[index]}
+              type={
+                time < sunrise
+                  ? DayNightType.NIGHT
+                  : time <= sunset
+                  ? DayNightType.DAY
+                  : DayNightType.NIGHT
+              }
+              time={dailyForecast?.hourly.time[index].slice(11, 13)}
+            />
+            {index === Math.trunc(sunrise / 100) && (
+              <SunriseSunset
+                time={dailyForecast?.daily.sunrise[0].slice(11, 16)}
+                weathercode={-1}
+                type={DayNightType.SUNRISE}
+              />
+            )}
+            {index === Math.trunc(sunset / 100) && (
+              <SunriseSunset
+                time={dailyForecast?.daily.sunset[0].slice(11, 16)}
+                weathercode={-2}
+                type={DayNightType.SUNSET}
+              />
+            )}
+          </>
+        );
+      }
+    }
+  );
+
   return (
     <CardContainer
       title="forecast.hoursByHours"
@@ -70,16 +125,20 @@ const DailyForecast = () => {
         <IoTimeOutline className="transition-none text-zinc-900 dark:text-zinc-200" />
       }
     >
-      <div className="flex overflow-x-auto scrollbar-thin scrollbar-rounded-full scrollbar-thumb-chardonnay dark:scrollbar-thumb-neutral-400">
+      <div className="flex overflow-x-auto sm:scrollbar-thin sm:scrollbar-rounded-full sm:scrollbar-thumb-chardonnay sm:dark:scrollbar-thumb-neutral-400">
         <ForecastPerHours
-          wmoCode={0}
-          type={DayNightType.DAY}
-        ></ForecastPerHours>
-        <ForecastCurrent
           temperature={dailyForecast?.current_weather.temperature}
           weathercode={dailyForecast?.current_weather.weathercode}
-          type={DayNightType.DAY}
-        ></ForecastCurrent>
+          type={
+            currentTime < sunrise
+              ? DayNightType.NIGHT
+              : currentTime <= sunset
+              ? DayNightType.DAY
+              : DayNightType.NIGHT
+          }
+          time={'now'}
+        />
+        {ListForecastPerHours}
       </div>
     </CardContainer>
   );
