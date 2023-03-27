@@ -21,7 +21,8 @@ module.exports = {
       },
       fontFamily: {
         'Supreme': ['Supreme', 'sans-serif'],
-        'Monoton': ['Monoton', 'cursive']
+        'Monoton': ['Monoton', 'cursive'],
+        'Stretch': ['Stretch', 'cursive']
      },
       width: {
         '112': '28rem', /* 448px */
@@ -37,5 +38,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 }

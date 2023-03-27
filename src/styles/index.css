@@ -13,6 +13,11 @@ body * {
   @apply transition-colors duration-300;
 }
 
+@font-face {
+  font-family: 'Stretch';
+  src: url('../../public/fonts/stretch/StretchPro.otf');
+}
+
 /**
  * @license
  *

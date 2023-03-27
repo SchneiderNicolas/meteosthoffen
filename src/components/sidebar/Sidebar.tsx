@@ -45,15 +45,8 @@ const Sidebar = ({ children }: SidebarProps) => {
           aria-label="Sidebar"
         >
           <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-black-700 transition-colors duration-300">
-            <SidebarHeader
-              navigateHome={() => console.log('/')}
-              isMobile={isMobile}
-              toggle={toggle}
-            />
-            <SidebarButtons
-              navigateHome={() => console.log('/')}
-              isMobile={isMobile}
-            />
+            <SidebarHeader isMobile={isMobile} toggle={toggle} />
+            <SidebarButtons isMobile={isMobile} />
             <div className="flex mt-auto justify-between mb-4 pr-20 md:pr-0">
               <SidebarLanguageSelector />
               <SidebarSwitch colorTheme={colorTheme} setTheme={setTheme} />
