@@ -1,25 +1,25 @@
 import React from 'react';
-import { useDailyForecast } from '../../hooks/useDailyForecast';
+import { useDailyForecast } from '../../../hooks/useDailyForecast';
 import { IoTimeOutline } from 'react-icons/io5';
-import CardContainer from './CardContainer';
-import { DayNightType } from '../../constants/enum/DayNight.enum';
-import WMOCodeEnum from '../../constants/enum/WMOCode.enum';
+import CardContainer from '../CardContainer';
+import { DayNightType } from '../../../constants/enum/DayNight.enum';
+import WMOCodeEnum from '../../../constants/enum/WMOCode.enum';
 import { useTranslation } from 'react-i18next';
-import { dateConverter } from '../../utils/dateConverter';
+import { dateConverter } from '../../../utils/dateConverter';
 
-type ForecastPerHoursProps = {
+type ForecastOneHourProps = {
   temperature: number | undefined;
   weathercode: number | undefined;
   type: DayNightType;
   time: string;
 };
 
-const ForecastPerHours = ({
+const ForecastOneHour = ({
   temperature,
   weathercode,
   type,
   time,
-}: ForecastPerHoursProps) => {
+}: ForecastOneHourProps) => {
   const { t } = useTranslation();
   return (
     <div className="flex flex-shrink-0 flex-col items-center w-20 sm:w-24 mb-4">
@@ -61,7 +61,7 @@ const SunriseSunset = ({ time, weathercode, type }: SunriseSunsetProps) => {
   );
 };
 
-const DailyForecast = () => {
+const ForecastPerHours = () => {
   const { dailyForecast, isLoading, isError } = useDailyForecast();
 
   if (isLoading) return <div>LOADING</div>;
@@ -80,12 +80,12 @@ const DailyForecast = () => {
 
   const ListForecastPerHours = dailyForecast?.hourly.temperature_2m.map(
     function (_, index) {
-      if (index > currentTime && index < currentTime + 26) {
+      if (index > currentTime && index < currentTime + 25) {
         const time =
           parseInt(dailyForecast?.hourly.time[index].slice(11, 13), 10) * 100;
         return (
           <div key={index} className="flex">
-            <ForecastPerHours
+            <ForecastOneHour
               temperature={dailyForecast?.hourly.temperature_2m[index]}
               weathercode={dailyForecast?.hourly.weathercode[index]}
               type={
@@ -116,7 +116,26 @@ const DailyForecast = () => {
       }
     }
   );
+  return (
+    <div className="flex overflow-x-auto scrollbar-thin scrollbar-rounded-full scrollbar-thumb-chardonnay dark:scrollbar-thumb-neutral-400">
+      <ForecastOneHour
+        temperature={dailyForecast?.current_weather.temperature}
+        weathercode={dailyForecast?.current_weather.weathercode}
+        type={
+          currentTime < sunrise
+            ? DayNightType.NIGHT
+            : currentTime <= sunset
+            ? DayNightType.DAY
+            : DayNightType.NIGHT
+        }
+        time={'now'}
+      />
+      {ListForecastPerHours}
+    </div>
+  );
+};
 
+const DailyForecast = () => {
   return (
     <CardContainer
       title="forecast.hoursByHours"
@@ -124,21 +143,7 @@ const DailyForecast = () => {
         <IoTimeOutline className="transition-none text-zinc-900 dark:text-zinc-200" />
       }
     >
-      <div className="flex overflow-x-auto sm:scrollbar-thin sm:scrollbar-rounded-full sm:scrollbar-thumb-chardonnay sm:dark:scrollbar-thumb-neutral-400">
-        <ForecastPerHours
-          temperature={dailyForecast?.current_weather.temperature}
-          weathercode={dailyForecast?.current_weather.weathercode}
-          type={
-            currentTime < sunrise
-              ? DayNightType.NIGHT
-              : currentTime <= sunset
-              ? DayNightType.DAY
-              : DayNightType.NIGHT
-          }
-          time={'now'}
-        />
-        {ListForecastPerHours}
-      </div>
+      <ForecastPerHours />
     </CardContainer>
   );
 };
