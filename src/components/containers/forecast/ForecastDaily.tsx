@@ -97,14 +97,14 @@ const ForecastPerHours = () => {
               }
               time={dailyForecast?.hourly.time[index].slice(11, 13)}
             />
-            {index === Math.trunc(sunrise / 100) && (
+            {index % 24 === Math.trunc(sunrise / 100) && (
               <SunriseSunset
                 time={dailyForecast?.daily.sunrise[0].slice(11, 16)}
                 weathercode={-1}
                 type={DayNightType.SUNRISE}
               />
             )}
-            {index === Math.trunc(sunset / 100) && (
+            {index % 24 === Math.trunc(sunset / 100) && (
               <SunriseSunset
                 time={dailyForecast?.daily.sunset[0].slice(11, 16)}
                 weathercode={-2}

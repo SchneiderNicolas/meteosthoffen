@@ -12,6 +12,11 @@ body * {
   @apply transition-colors duration-300;
 }
 
+.h-screen-22 {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
 @font-face {
   font-family: 'Stretch';
   src: url('../../public/fonts/stretch/StretchPro.otf');
