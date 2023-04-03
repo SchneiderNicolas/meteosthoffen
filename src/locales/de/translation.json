@@ -10,6 +10,7 @@
     "footer.by": "von",
 
     "forecast.hoursByHours": "Stündliche Vorhersage",
+    "forecast.7days": "7-tage wetter",
     "forecast.now": "Jetzt",
     "sunrise": "Sonnenaufgang",
     "sunset": "Sonnenuntergang",
@@ -37,6 +38,15 @@
     "forecast.21": "21 Uhr",
     "forecast.22": "22 Uhr",
     "forecast.23": "23 Uhr",
+
+    "Monday": "Montag",
+    "Tuesday": "Dienstag",
+    "Wednesday": "Mittwoch",
+    "Thursday": "Donnerstag",
+    "Friday": "Freitag",
+    "Saturday": "Samstag",
+    "Sunday": "Sonntag",
+    "today": "Heute",
 
     "404.sorry": "Entschuldigung, wir konnten diese Seite nicht finden.",
     "404.redirect": "Aber keine Sorge, auf unserer Homepage finden Sie noch viele andere Dinge.",

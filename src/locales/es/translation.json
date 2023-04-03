@@ -10,6 +10,7 @@
     "footer.by": "por",
 
     "forecast.hoursByHours": "Pronóstico por hora",
+    "forecast.7days": "Pronóstico para los próximos 7 diás",
     "forecast.now": "Ahora",
     "sunrise": "Amanecer",
     "sunset": "Atardecer",
@@ -37,6 +38,15 @@
     "forecast.21": "21",
     "forecast.22": "22",
     "forecast.23": "23",
+
+    "Monday": "Lunes",
+    "Tuesday": "Martes",
+    "Wednesday": "Miércoles",
+    "Thursday": "Jueves",
+    "Friday": "Viernes",
+    "Saturday": "Sábado",
+    "Sunday": "Domingo",
+    "today": "Hoy",
 
     "404.sorry": "Lo sentimos, no hemos podido encontrar esta página.",
     "404.redirect": "Pero no se preocupe, puede encontrar muchas otras cosas en nuestra página web.",

@@ -11,7 +11,7 @@ type CardContainerProps = {
 const CardContainer = ({ children, title, icon }: CardContainerProps) => {
   const { t } = useTranslation();
   return (
-    <div className="w-full py-3 px-4 dark:bg-black-700 bg-peach opacity-80 rounded-lg">
+    <div className="w-full py-3 px-2 sm:px-4 dark:bg-black-700 bg-peach opacity-80 rounded-lg">
       <div className="flex items-center mb-2">
         {title && (
           <>

@@ -1,3 +1,5 @@
+import { ICurrentWeather } from './ICurrentWeather';
+
 export interface IDailyForecast {
   latitude: number;
   longitude: number;
@@ -11,14 +13,6 @@ export interface IDailyForecast {
   hourly: IHourly;
   daily_units: IDailyUnits;
   daily: IDaily;
-}
-
-export interface ICurrentWeather {
-  temperature: number;
-  windspeed: number;
-  winddirection: number;
-  weathercode: number;
-  time: string;
 }
 
 export interface IHourlyUnits {

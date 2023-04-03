@@ -9,6 +9,10 @@ export const useTheme = () => {
     root.classList.remove(colorTheme);
     root.classList.add(theme);
     localStorage.setItem('theme', theme);
+    const themeChangedEvent = new CustomEvent('theme-changed', {
+      detail: { colorTheme },
+    });
+    window.dispatchEvent(themeChangedEvent);
   }, [theme, colorTheme]);
 
   return { colorTheme, setTheme };

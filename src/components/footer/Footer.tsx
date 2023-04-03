@@ -34,9 +34,12 @@ const Footer = () => {
               {t('footer.privacy')}
             </span>
             {isPhone ? <br /> : <span className="cursor-default"> | </span>}
-            <a href="/privacy" className="hover:underline">
+            <span
+              onClick={() => navigate('/')}
+              className="hover:underline cursor-pointer"
+            >
               {t('footer.cookies')}
-            </a>
+            </span>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center text-sm text-neutral-400">
             <span className="">
