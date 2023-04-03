@@ -6,11 +6,13 @@ import Privacy from './pages/Privacy';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ThemeColor from './utils/themeColor';
+import MetaTags from './utils/metaTags';
 
 function App() {
   return (
     <>
       <ThemeColor />
+      <MetaTags />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
