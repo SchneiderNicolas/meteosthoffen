@@ -39,7 +39,7 @@ const Sidebar = ({ children }: SidebarProps) => {
         <aside
           id="default-sidebar"
           className={classNames(
-            'fixed top-0 left-0 z-40 md:w-60 w-80 h-screen-22 transition-transform md:translate-x-0',
+            'fixed top-0 left-0 z-40 md:w-60 w-80 h-screen transition-transform md:translate-x-0',
             !isOpen && '-translate-x-full'
           )}
           aria-label="Sidebar"

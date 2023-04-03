@@ -5,12 +5,20 @@ import WMOCodeEnum from '../../../constants/enum/WMOCode.enum';
 import { DayNightType } from '../../../constants/enum/DayNight.enum';
 import { temperatureGradient } from '../../../utils/temperatureGradient';
 import { useWeeklyForecast } from '../../../hooks/useWeeklyForecast';
+import { BsWind } from 'react-icons/bs';
+import moment from 'moment-timezone';
+import { useTranslation } from 'react-i18next';
 
-const ForecastOneDayName = () => {
+type ForecastOneDayNameProps = {
+  date: string;
+};
+
+const ForecastOneDayName = ({ date }: ForecastOneDayNameProps) => {
+  const { t } = useTranslation();
   return (
     <div className="col-span-2 flex items-center ml-1 sm:ml-4">
       <span className="text-zinc-900 dark:text-white font-medium">
-        {'Wednesday'}
+        {t(date)}
       </span>
     </div>
   );
@@ -41,6 +49,7 @@ type ForecastOneDayTemperatureProps = {
   tmin: number;
   tmax: number;
   currentTemp?: number;
+  first: boolean;
 };
 
 const ForecastOneDayTemperature = ({
@@ -51,6 +60,7 @@ const ForecastOneDayTemperature = ({
   tmin,
   tmax,
   currentTemp,
+  first,
 }: ForecastOneDayTemperatureProps) => {
   return (
     <div className="col-span-7 lg:col-span-6">
@@ -60,7 +70,7 @@ const ForecastOneDayTemperature = ({
         </span>
         <div className="w-full mx-2 -mt-2">
           <div className="relative">
-            {currentTemp !== undefined && (
+            {first === true && currentTemp !== undefined && (
               <div
                 className="absolute w-2 sm:w-4 rounded-full bg-white sm:-mt-1 h-2 sm:h-4 z-50 border-2 border-neutral-500 dark:border-neutral-700"
                 style={{
@@ -100,10 +110,22 @@ const ForecastOneDayTemperature = ({
   );
 };
 
-const ForecastOneDayWind = () => {
+type ForecastOneDayWindProps = {
+  wind: number;
+};
+
+const ForecastOneDayWind = ({ wind }: ForecastOneDayWindProps) => {
   return (
     <div className="col-span-2 lg:col-span-3 flex justify-center items-center">
-      Wind
+      <div className="flex flex-col lg:flex-row items-center">
+        <BsWind
+          size={20}
+          className="transition-none text-zinc-900 dark:text-white"
+        />
+        <span className="lg:ml-2 mt-1 lg:mt-0 text-zinc-900 dark:text-white font-medium text-xs sm:text-sm">
+          {wind + ' km/h'}
+        </span>
+      </div>
     </div>
   );
 };
@@ -117,6 +139,10 @@ type ForecastOneDayProps = {
   tmax: number;
   weathercode: number;
   last: boolean;
+  first: boolean;
+  wind: number;
+  date: string;
+  currentTemp: number;
 };
 
 const ForecastOneDay = ({
@@ -128,10 +154,14 @@ const ForecastOneDay = ({
   tmax,
   weathercode,
   last,
+  first,
+  wind,
+  date,
+  currentTemp,
 }: ForecastOneDayProps) => {
   return (
     <>
-      <ForecastOneDayName />
+      <ForecastOneDayName date={first ? 'today' : date} />
       <ForecastOneDayWeatherCode weathercode={weathercode} />
       <ForecastOneDayTemperature
         gradient={gradient}
@@ -140,8 +170,10 @@ const ForecastOneDay = ({
         weeklyTgap={weeklyTgap}
         tmin={tmin}
         tmax={tmax}
+        first={first}
+        currentTemp={currentTemp}
       />
-      <ForecastOneDayWind />
+      <ForecastOneDayWind wind={wind} />
       {last ? (
         <div className="mb-1" />
       ) : (
@@ -181,6 +213,12 @@ const ForecastPerDay = () => {
         tmax={Math.round(weeklyForecast.daily.temperature_2m_max[index])}
         weathercode={weeklyForecast.daily.weathercode[index]}
         last={index === 6 && true}
+        first={index === 0 && true}
+        wind={Math.round(weeklyForecast.daily.windgusts_10m_max[index])}
+        date={moment
+          .tz(weeklyForecast?.daily.time[index]!, 'Europe/Paris')
+          .format('dddd')}
+        currentTemp={Math.round(weeklyForecast.current_weather.temperature)}
       />
     );
   });

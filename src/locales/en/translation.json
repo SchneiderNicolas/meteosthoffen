@@ -10,6 +10,7 @@
     "footer.by": "by",
 
     "forecast.hoursByHours": "Hourly forecast",
+    "forecast.7days": "7-day forecast",
     "sunrise": "Sunrise",
     "sunset": "Sunset",
     "forecast.now": "Now",
@@ -38,6 +39,14 @@
     "forecast.22": "10 PM",
     "forecast.23": "11 PM",
 
+    "Monday": "Monday",
+    "Tuesday": "Tuesday",
+    "Wednesday": "Wednesday",
+    "Thursday": "Thursday",
+    "Friday": "Friday",
+    "Saturday": "Saturday",
+    "Sunday": "Sunday",
+    "today": "Today",
 
     "404.sorry": "Sorry, we couldn't find this page.",
     "404.redirect": "But dont worry, you can find plenty of other things on our homepage.",
