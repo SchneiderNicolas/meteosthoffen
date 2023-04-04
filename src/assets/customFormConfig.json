@@ -1,0 +1,106 @@
+{
+    "config": {
+        "formTitle": "Write us",
+        "customContactObject": [
+            {
+                "label": "Information",
+                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+            },
+            {
+                "label": "Client Relations",
+                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+            },
+            {
+                "label": "Subscription",
+                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+            },
+            {
+                "label": "Other",
+                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+            },
+            {
+                "label": "RGPD: DPO Contact",
+                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+            }
+        ],
+        "itemConfigList": [
+            {
+                "type": "TEXT",
+                "label": "If your request concerns your Bestofy account, we invite you to fill in precisely the 2 fields below. This will allow us to better process your request.",
+                "allObjects": false,
+                "customObjects": ["Client Relations", "Subscription"]
+            },
+            {
+                "type": "INPUT",
+                "label": "Bestofy nickname",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["Client Relations", "Subscription"]
+            },
+            {
+                "type": "CUSTOM_LIST",
+                "label": "What is your subscription type?",
+                "required": false,
+                "allObjects": false,
+                "customObjects": ["Client Relations"],
+                "listField": ["None", "Free", "Basic", "Pro"]
+            },
+            {
+                "type": "RADIO",
+                "label": "What is your current subscription type?",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["Subscription"],
+                "listField": ["Free", "Basic", "Pro"]
+            },
+            {
+                "type": "TEXT",
+                "label": "",
+                "allObjects": false,
+                "customObjects": ["Client Relations", "Subscription"]
+            },
+            {
+                "type": "INPUT",
+                "label": "First name",
+                "required": false,
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "INPUT",
+                "label": "Name",
+                "required": false,
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "EMAIL",
+                "label": "Email",
+                "required": true,
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "TEXT",
+                "label": "Please let us know why you are contacting us.",
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "INPUT_TEXT_AREA",
+                "label": "Message",
+                "required": true,
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "CHECKBOX",
+                "label": "I agree to receive the newsletter",
+                "required": false,
+                "allObjects": false,
+                "customObjects": ["Information"]
+            }
+        ],
+        "buttonSubmitLabel": "Submit"
+    }
+}

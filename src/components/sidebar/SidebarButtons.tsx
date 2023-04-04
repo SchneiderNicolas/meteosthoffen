@@ -21,9 +21,7 @@ const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
       onClick={onClick}
     >
       {icon}
-      <span className="flex-1 ml-3 whitespace-nowrap dark:group-hover:text-oyster">
-        {name}
-      </span>
+      <span className="flex-1 ml-3 whitespace-nowrap">{name}</span>
     </div>
   );
 };
@@ -38,7 +36,7 @@ const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
         icon={
           <IoPartlySunnyOutline
             size={30}
-            className="text-zinc-900 dark:text-zinc-50 transition-none dark:group-hover:text-oyster"
+            className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
         onClick={() => navigate('/')}
@@ -48,7 +46,7 @@ const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
         icon={
           <IoCalendarOutline
             size={30}
-            className="text-zinc-900 dark:text-zinc-50 transition-none dark:group-hover:text-oyster"
+            className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
         onClick={() => navigate('/')}
