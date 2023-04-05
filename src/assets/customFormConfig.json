@@ -1,104 +1,82 @@
 {
     "config": {
-        "formTitle": "Write us",
+        "formTitle": "form.title",
         "customContactObject": [
             {
-                "label": "Information",
-                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+                "label": "form.information",
+                "receivers": ["nicolas.j.sch@gmail.com"]
             },
             {
-                "label": "Client Relations",
-                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+                "label": "form.issue",
+                "receivers": ["nicolas.j.sch@gmail.com"]
             },
             {
-                "label": "Subscription",
-                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+                "label": "form.other",
+                "receivers": ["nicolas.j.sch@gmail.com"]
             },
             {
-                "label": "Other",
-                "receivers": ["bestofy_2024@labeip.epitech.eu"]
-            },
-            {
-                "label": "RGPD: DPO Contact",
-                "receivers": ["bestofy_2024@labeip.epitech.eu"]
+                "label": "form.rgpd",
+                "receivers": ["nicolas.j.sch@gmail.com"]
             }
         ],
         "itemConfigList": [
             {
-                "type": "TEXT",
-                "label": "If your request concerns your Bestofy account, we invite you to fill in precisely the 2 fields below. This will allow us to better process your request.",
-                "allObjects": false,
-                "customObjects": ["Client Relations", "Subscription"]
-            },
-            {
-                "type": "INPUT",
-                "label": "Bestofy nickname",
+                "type": "RADIO",
+                "label": "form.issue.device",
                 "required": true,
                 "allObjects": false,
-                "customObjects": ["Client Relations", "Subscription"]
+                "customObjects": ["form.issue"],
+                "listField": ["form.issue.desktop", "form.issue.tablet", "form.issue.mobile"]
             },
             {
                 "type": "CUSTOM_LIST",
-                "label": "What is your subscription type?",
+                "label": "form.issue.browser",
                 "required": false,
                 "allObjects": false,
-                "customObjects": ["Client Relations"],
-                "listField": ["None", "Free", "Basic", "Pro"]
-            },
-            {
-                "type": "RADIO",
-                "label": "What is your current subscription type?",
-                "required": true,
-                "allObjects": false,
-                "customObjects": ["Subscription"],
-                "listField": ["Free", "Basic", "Pro"]
-            },
-            {
-                "type": "TEXT",
-                "label": "",
-                "allObjects": false,
-                "customObjects": ["Client Relations", "Subscription"]
-            },
-            {
-                "type": "INPUT",
-                "label": "First name",
-                "required": false,
-                "allObjects": true,
-                "customObjects": []
-            },
-            {
-                "type": "INPUT",
-                "label": "Name",
-                "required": false,
-                "allObjects": true,
-                "customObjects": []
+                "customObjects": ["form.issue"],
+                "listField": [
+                    "form.issue.GoogleChrome",
+                    "form.issue.MozillaFirefox",
+                    "form.issue.AppleSafari",
+                    "form.issue.MicrosoftEdge",
+                    "form.issue.Opera",
+                    "form.issue.Brave",
+                    "form.issue.Vivaldi",
+                    "form.issue.Chromium"
+                  ]
             },
             {
                 "type": "EMAIL",
-                "label": "Email",
+                "label": "form.email",
                 "required": true,
                 "allObjects": true,
                 "customObjects": []
             },
             {
                 "type": "TEXT",
-                "label": "Please let us know why you are contacting us.",
-                "allObjects": true,
-                "customObjects": []
+                "label": "form.issue.description",
+                "allObjects": false,
+                "customObjects": ["form.issue"]
             },
             {
                 "type": "INPUT_TEXT_AREA",
-                "label": "Message",
+                "label": "form.issue.message",
                 "required": true,
-                "allObjects": true,
-                "customObjects": []
+                "allObjects": false,
+                "customObjects": ["form.issue"]
             },
             {
-                "type": "CHECKBOX",
-                "label": "I agree to receive the newsletter",
-                "required": false,
+                "type": "TEXT",
+                "label": "form.description",
                 "allObjects": false,
-                "customObjects": ["Information"]
+                "customObjects": ["form.information", "form.other", "form.rgpd"]
+            },
+            {
+                "type": "INPUT_TEXT_AREA",
+                "label": "form.message",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["form.information", "form.other", "form.rgpd"]
             }
         ],
         "buttonSubmitLabel": "Submit"

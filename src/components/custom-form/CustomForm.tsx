@@ -26,7 +26,7 @@ const CustomFormObject = ({
   const getObject = () => {
     const listObj: string[] = [];
     customContactObject.forEach((element: ICustomContactObject) =>
-      listObj.push(element.label)
+      listObj.push(t(element.label))
     );
     return listObj;
   };
@@ -58,7 +58,7 @@ const CustomForm = () => {
   const { t } = useTranslation();
 
   const [selectedObject, setSelectedObject] = useState(
-    customContactObject[0].label
+    t(customContactObject[0].label)!
   );
 
   const getSelectedObjectKey = (e: ChangeEvent<HTMLSelectElement>) => {

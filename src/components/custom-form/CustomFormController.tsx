@@ -1,16 +1,24 @@
 import React, { Fragment, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   IItemConfigList,
   IConfig,
 } from '../../constants/interfaces/ICustomFormConfig.interface';
 import Button from '../Button';
+import CustomFormCheckbox from './CustomFormCheckbox';
+import CustomFormCustomList from './CustomFormCustomList';
+import CustomFormEmail from './CustomFormEmail';
+import CustomFormErrorMessage from './CustomFormErrorMessage';
+import CustomFormInput from './CustomFormInput';
+import CustomFormRadio from './CustomFormRadio';
+import CustomFormText from './CustomFormText';
 import CustomFormInputTextArea from './CustomFormTextArea';
 
-export type CustomFormProps = {
+export type CustomFormProps<T = any> = {
   itemConfig: IItemConfigList;
-  value: string;
-  onChange: (value: string) => void;
+  value: T;
+  onChange: (value: T) => void;
 };
 
 const CustomFormFieldFactory = ({
@@ -28,13 +36,37 @@ const CustomFormFieldFactory = ({
         />
       );
     case 'INPUT':
-      return <div>input</div>;
+      return (
+        <CustomFormInput
+          itemConfig={itemConfig}
+          value={value}
+          onChange={onChange}
+        />
+      );
     case 'CHECKBOX':
-      return <div>CHECKBOX</div>;
+      return (
+        <CustomFormCheckbox
+          itemConfig={itemConfig}
+          value={value}
+          onChange={onChange}
+        />
+      );
     case 'CUSTOM_LIST':
-      return <div>Custom list</div>;
+      return (
+        <CustomFormCustomList
+          itemConfig={itemConfig}
+          value={value}
+          onChange={onChange}
+        />
+      );
     case 'RADIO':
-      return <div>radio</div>;
+      return (
+        <CustomFormRadio
+          itemConfig={itemConfig}
+          value={value}
+          onChange={onChange}
+        />
+      );
     default:
       return <></>;
   }
@@ -57,6 +89,7 @@ const CustomFormController = ({
   } = useForm();
   const { itemConfigList } = config;
   const [showModalSucess, setShowModalSucess] = useState(false);
+  const { t } = useTranslation();
   const onClickCloseModal = () => {
     setShowModalSucess(false);
   };
@@ -66,7 +99,7 @@ const CustomFormController = ({
     console.log(data);
     let receiver: string[] = [];
     config.customContactObject.forEach((e) => {
-      if (e.label === selectedObject) {
+      if (t(e.label) === selectedObject) {
         receiver = e.receivers;
       }
     });
@@ -80,7 +113,7 @@ const CustomFormController = ({
       displayField = true;
     } else {
       itemConfig.customObjects.forEach((element) => {
-        if (element === selectedObject) {
+        if (t(element) === selectedObject) {
           displayField = true;
         }
       });
@@ -90,7 +123,7 @@ const CustomFormController = ({
 
   const defaultValueSpecialCase = (itemConfig: IItemConfigList) => {
     if (itemConfig.type === 'CUSTOM_LIST') {
-      return itemConfig.listField ? itemConfig.listField[0] : '';
+      return itemConfig.listField ? t(itemConfig.listField[0]) : '';
     } else if (itemConfig.type === 'CHECKBOX') {
       return false;
     } else {
@@ -101,14 +134,26 @@ const CustomFormController = ({
   const formInputs = itemConfigList.map((element) => {
     if (isDisplayed(element)) {
       if (element.type === 'TEXT') {
-        return <div key={element.label.replace("'", ' ')}>text</div>;
+        return (
+          <CustomFormText
+            key={t(element.label).replace("'", ' ')}
+            itemConfig={element}
+          />
+        );
       } else if (element.type === 'EMAIL') {
-        return <div key={element.label.replace("'", ' ')}>EMAIL</div>;
+        return (
+          <CustomFormEmail
+            key={'customEmail'}
+            control={control}
+            element={element}
+            errors={errors}
+          />
+        );
       } else {
         return (
-          <Fragment key={element.label.replace("'", ' ')}>
+          <Fragment key={t(element.label).replace("'", ' ')}>
             <Controller
-              name={element.label.replace("'", ' ')}
+              name={t(element.label).replace("'", ' ')}
               control={control}
               rules={
                 element.required ? { required: true } : { required: false }
@@ -122,8 +167,8 @@ const CustomFormController = ({
                 />
               )}
             />
-            {errors[element.label.replace("'", ' ')] && (
-              <div>ERROR MESSAGE</div>
+            {errors[t(element.label).replace("'", ' ')] && (
+              <CustomFormErrorMessage errorMessage={t('form.error.fields')} />
             )}
           </Fragment>
         );
