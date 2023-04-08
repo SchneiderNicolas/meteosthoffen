@@ -454,7 +454,7 @@ export default class WMOCodeEnum {
     'sunrise',
     -1,
     DayNightType.SUNRISE,
-    './assets/weather_icons/Tornado.png'
+    './assets/weather_icons/Sunrise.png'
   );
 
   public static readonly SUNSET = new WMOCodeEnum(
@@ -462,7 +462,7 @@ export default class WMOCodeEnum {
     'sunset',
     -2,
     DayNightType.SUNSET,
-    './assets/weather_icons/Tornado.png'
+    './assets/weather_icons/Sunset.png'
   );
 
   private static readonly mMap = new Map([

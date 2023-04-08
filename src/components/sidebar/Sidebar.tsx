@@ -20,6 +20,33 @@ const Sidebar = ({ children }: SidebarProps) => {
   const { isOpen, toggle } = useSideBar();
   const { isMobile } = useResponsive();
   const [themeProvider, setThemeProvider] = useState(localStorage.theme);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add(
+        'overflow-hidden',
+        'fixed',
+        'w-full',
+        'h-full'
+      );
+    } else {
+      document.body.classList.remove(
+        'overflow-hidden',
+        'fixed',
+        'w-full',
+        'h-full'
+      );
+    }
+
+    return () => {
+      document.body.classList.remove(
+        'overflow-hidden',
+        'fixed',
+        'w-full',
+        'h-full'
+      );
+    };
+  }, [isOpen]);
   const { colorTheme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -31,7 +58,7 @@ const Sidebar = ({ children }: SidebarProps) => {
       <nav className="bg-white dark:bg-black-800">
         {!isOpen && (
           <IoMenu
-            className="absolute left-0 top-0 z-50 p-2 mt-3 ml-3 text-sm text-zinc-900 dark:text-zinc-50 rounded-lg md:hidden"
+            className="absolute left-0 top-0 z-40 p-2 mt-3 ml-3 text-sm text-zinc-900 dark:text-zinc-50 rounded-lg md:hidden"
             onClick={toggle}
             size={50}
           />
@@ -39,12 +66,12 @@ const Sidebar = ({ children }: SidebarProps) => {
         <aside
           id="default-sidebar"
           className={classNames(
-            'fixed top-0 left-0 z-40 md:w-60 w-80 h-screen transition-transform md:translate-x-0',
+            'fixed top-0 left-0 z-30 md:w-60 w-80 h-screen transition-transform md:translate-x-0',
             !isOpen && '-translate-x-full'
           )}
           aria-label="Sidebar"
         >
-          <div className="flex flex-col h-full px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-black-700 transition-colors duration-300">
+          <div className="flex flex-col h-full pb-24 md:pb-4 px-4 py-4 overflow-y-auto bg-zinc-50 dark:bg-black-700 transition-colors duration-300">
             <SidebarHeader isMobile={isMobile} toggle={toggle} />
             <SidebarButtons isMobile={isMobile} />
             <div className="flex mt-auto justify-between mb-4 pr-20 md:pr-0">
