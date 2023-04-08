@@ -11,6 +11,7 @@ import CustomFormCustomList from './CustomFormCustomList';
 import CustomFormEmail from './CustomFormEmail';
 import CustomFormErrorMessage from './CustomFormErrorMessage';
 import CustomFormInput from './CustomFormInput';
+import CustomFormModal from './CustomFormModal';
 import CustomFormRadio from './CustomFormRadio';
 import CustomFormText from './CustomFormText';
 import CustomFormInputTextArea from './CustomFormTextArea';
@@ -89,22 +90,50 @@ const CustomFormController = ({
   } = useForm();
   const { itemConfigList } = config;
   const [showModalSucess, setShowModalSucess] = useState(false);
+  const [showModalFail, setShowModalFail] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { t } = useTranslation();
   const onClickCloseModal = () => {
     setShowModalSucess(false);
+    setShowModalFail(false);
   };
-  console.log(onClickCloseModal);
 
   const onSubmit = (data: Record<string, unknown>) => {
-    console.log(data);
-    let receiver: string[] = [];
+    setLoading(true);
+    let receivers: string[] = [];
     config.customContactObject.forEach((e) => {
       if (t(e.label) === selectedObject) {
-        receiver = e.receivers;
+        receivers = e.receivers;
       }
     });
-    console.log(receiver);
-    reset();
+    fetch('https://xb2t4ook36.execute-api.eu-west-1.amazonaws.com/sendEmail', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        formValues: data,
+        receivers: receivers,
+        selectedObject: selectedObject,
+        recipient: data.Email,
+      }),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          setShowModalSucess(true);
+        } else {
+          setShowModalFail(true);
+        }
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        setShowModalFail(true);
+      })
+      .finally(() => {
+        reset();
+        setLoading(false);
+      });
   };
 
   const isDisplayed = (itemConfig: IItemConfigList) => {
@@ -187,12 +216,18 @@ const CustomFormController = ({
             type="submit"
             variant="contained"
             className="uppercase sm:px-36 px-16 py-3"
+            disabled={loading}
           >
-            {config.buttonSubmitLabel}
+            {t(config.buttonSubmitLabel)}
           </Button>
         </div>
       </form>
-      {showModalSucess && <div>SUCCESS MODAL</div>}
+      {(showModalSucess || showModalFail) && (
+        <CustomFormModal
+          onClickCloseModal={onClickCloseModal}
+          error={showModalFail}
+        />
+      )}
     </>
   );
 };

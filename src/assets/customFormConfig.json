@@ -79,6 +79,6 @@
                 "customObjects": ["form.information", "form.other", "form.rgpd"]
             }
         ],
-        "buttonSubmitLabel": "Submit"
+        "buttonSubmitLabel": "form.submit"
     }
 }

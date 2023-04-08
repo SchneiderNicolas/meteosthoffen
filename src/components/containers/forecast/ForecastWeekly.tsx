@@ -74,7 +74,7 @@ const ForecastOneDayTemperature = ({
           <div className="relative">
             {first === true && currentTemp !== undefined && (
               <div
-                className="absolute w-2 sm:w-4 rounded-full bg-white sm:-mt-1 h-2 sm:h-4 z-50 border-2 border-neutral-500 dark:border-neutral-700"
+                className="absolute w-2 sm:w-4 rounded-full bg-white sm:-mt-1 h-2 sm:h-4 z-40 border-2 border-neutral-500 dark:border-neutral-700"
                 style={{
                   marginLeft: `calc(${Math.round(
                     (100 / weeklyTgap) * Math.abs(currentTemp - weeklyTmin)

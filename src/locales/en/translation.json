@@ -79,6 +79,12 @@
     "form.confirm.email": "Confirm your email address",
     "form.error.fields": "This field is required",
     "form.error.email": "Email does not match",
+    "form.submit": "Submit",
+    "form.modal.success": "Thank you for your message, we will answer you as soon as possible!",
+    "form.modal.error": "An error occurred while processing your request.",
+    "form.success": "Message sent",
+    "form.error": "Error",
+    "form.continue": "Continue",
 
     "404.sorry": "Sorry, we couldn't find this page.",
     "404.redirect": "But dont worry, you can find plenty of other things on our homepage.",

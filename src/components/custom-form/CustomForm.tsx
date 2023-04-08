@@ -43,7 +43,7 @@ const CustomFormObject = ({
         </span>
       </label>
       <Select
-        className="mt-1 focus:outline-none border-2 border-white dark:border-neutral-800 focus:border-chardonnay focus:dark:border-paua focus:bg-zinc-50 focus:dark:bg-neutral-700 bg-white dark:bg-neutral-800 w-full font-medium rounded-none lg:text-sm text-xs"
+        className="mt-1 focus:outline-none border-2 border-white dark:border-neutral-800 focus:border-chardonnay focus:dark:border-paua focus:bg-zinc-50 focus:dark:bg-neutral-700 bg-white dark:bg-neutral-800 w-full font-normal rounded-none"
         options={listObject}
         selectedValue={selectedObject}
         onChange={onChangeObject}
@@ -64,7 +64,6 @@ const CustomForm = () => {
   const getSelectedObjectKey = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedObject(e.target.value);
   };
-  console.log(selectedObject);
 
   return (
     <CardContainer

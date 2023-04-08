@@ -79,6 +79,12 @@
     "form.confirm.email": "Confirmar su correo electrónico",
     "form.error.fields": "Este campo es obligatorio",
     "form.error.email": "El correo electrónico no coincide",
+    "form.submit": "Enviar",
+    "form.modal.success": "¡Gracias por su mensaje, le responderemos lo antes posible!",
+    "form.modal.error": "Se produjo un error al procesar su solicitud.",
+    "form.success": "Mensaje enviado",
+    "form.error": "Error",
+    "form.continue": "Continuar",
 
     "404.sorry": "Lo sentimos, no hemos podido encontrar esta página.",
     "404.redirect": "Pero no se preocupe, puede encontrar muchas otras cosas en nuestra página web.",
