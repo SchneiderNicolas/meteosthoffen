@@ -38,7 +38,6 @@ const Sidebar = ({ children }: SidebarProps) => {
       );
     }
 
-    // Nettoyez l'effet en rétablissant le style original lors du démontage du composant
     return () => {
       document.body.classList.remove(
         'overflow-hidden',
