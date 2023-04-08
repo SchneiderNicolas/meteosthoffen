@@ -8,6 +8,7 @@ import { useWeeklyForecast } from '../../../hooks/useWeeklyForecast';
 import { BsWind } from 'react-icons/bs';
 import moment from 'moment-timezone';
 import { useTranslation } from 'react-i18next';
+import { useResponsive } from '../../../hooks/useResponsive';
 
 type ForecastOneDayNameProps = {
   date: string;
@@ -15,10 +16,11 @@ type ForecastOneDayNameProps = {
 
 const ForecastOneDayName = ({ date }: ForecastOneDayNameProps) => {
   const { t } = useTranslation();
+  const { isMobile } = useResponsive();
   return (
     <div className="col-span-2 flex items-center ml-1 sm:ml-4">
       <span className="text-zinc-900 dark:text-white font-medium">
-        {t(date)}
+        {isMobile ? t(date).substring(0, 3) + '.' : t(date)}
       </span>
     </div>
   );
@@ -72,7 +74,7 @@ const ForecastOneDayTemperature = ({
           <div className="relative">
             {first === true && currentTemp !== undefined && (
               <div
-                className="absolute w-2 sm:w-4 rounded-full bg-white sm:-mt-1 h-2 sm:h-4 z-50 border-2 border-neutral-500 dark:border-neutral-700"
+                className="absolute w-2 sm:w-4 rounded-full bg-white sm:-mt-1 h-2 sm:h-4 z-40 border-2 border-neutral-500 dark:border-neutral-700"
                 style={{
                   marginLeft: `calc(${Math.round(
                     (100 / weeklyTgap) * Math.abs(currentTemp - weeklyTmin)

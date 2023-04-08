@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="w-full xl:w-256 px-0 sm:p-4 lg:p-8 xl:p-0">
-        <footer className="pb-8 sm:pb-4 xl:pb-10 bg-white dark:bg-black-800">
+        <footer className="pb-8 mt-12 sm:pb-4 xl:pb-10 bg-white dark:bg-black-800">
           <hr className="border-neutral-400 sm:mx-auto pb-8" />
           <div className="block text-center space-x-4 text-neutral-400 pb-4">
             <span

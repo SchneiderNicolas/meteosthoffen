@@ -1,0 +1,84 @@
+{
+    "config": {
+        "formTitle": "form.title",
+        "customContactObject": [
+            {
+                "label": "form.information",
+                "receivers": ["nicolas.j.sch@gmail.com"]
+            },
+            {
+                "label": "form.issue",
+                "receivers": ["nicolas.j.sch@gmail.com"]
+            },
+            {
+                "label": "form.other",
+                "receivers": ["nicolas.j.sch@gmail.com"]
+            },
+            {
+                "label": "form.rgpd",
+                "receivers": ["nicolas.j.sch@gmail.com"]
+            }
+        ],
+        "itemConfigList": [
+            {
+                "type": "RADIO",
+                "label": "form.issue.device",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["form.issue"],
+                "listField": ["form.issue.desktop", "form.issue.tablet", "form.issue.mobile"]
+            },
+            {
+                "type": "CUSTOM_LIST",
+                "label": "form.issue.browser",
+                "required": false,
+                "allObjects": false,
+                "customObjects": ["form.issue"],
+                "listField": [
+                    "form.issue.GoogleChrome",
+                    "form.issue.MozillaFirefox",
+                    "form.issue.AppleSafari",
+                    "form.issue.MicrosoftEdge",
+                    "form.issue.Opera",
+                    "form.issue.Brave",
+                    "form.issue.Vivaldi",
+                    "form.issue.Chromium"
+                  ]
+            },
+            {
+                "type": "EMAIL",
+                "label": "form.email",
+                "required": true,
+                "allObjects": true,
+                "customObjects": []
+            },
+            {
+                "type": "TEXT",
+                "label": "form.issue.description",
+                "allObjects": false,
+                "customObjects": ["form.issue"]
+            },
+            {
+                "type": "INPUT_TEXT_AREA",
+                "label": "form.issue.message",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["form.issue"]
+            },
+            {
+                "type": "TEXT",
+                "label": "form.description",
+                "allObjects": false,
+                "customObjects": ["form.information", "form.other", "form.rgpd"]
+            },
+            {
+                "type": "INPUT_TEXT_AREA",
+                "label": "form.message",
+                "required": true,
+                "allObjects": false,
+                "customObjects": ["form.information", "form.other", "form.rgpd"]
+            }
+        ],
+        "buttonSubmitLabel": "form.submit"
+    }
+}

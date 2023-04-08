@@ -1,14 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { IoGlobeOutline, IoCheckmarkCircleSharp } from 'react-icons/io5';
 import Flag from 'react-world-flags';
 
 const Tooltip = () => {
   const { i18n } = useTranslation();
+  const location = useLocation();
 
   const setLanguage = (language: string) => {
     i18n.changeLanguage(language);
     localStorage.setItem('language', language);
+    if (location.pathname === '/contact') {
+      window.location.reload();
+    }
   };
 
   return (
