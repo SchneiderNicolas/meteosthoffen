@@ -106,7 +106,7 @@ const CustomFormController = ({
         receivers = e.receivers;
       }
     });
-    fetch('https://xb2t4ook36.execute-api.eu-west-1.amazonaws.com/sendEmail', {
+    fetch('https://api.meteosthoffen.fr/sendEmail', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

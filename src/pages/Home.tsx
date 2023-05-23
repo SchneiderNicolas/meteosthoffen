@@ -2,6 +2,7 @@ import React from 'react';
 import DailyForecast from '../components/containers/forecast/ForecastDaily';
 import MainLayout from '../components/containers/MainLayout';
 import ForecastWeekly from '../components/containers/forecast/ForecastWeekly';
+import CurrentForecast from '../components/containers/forecast/ForecastCurrent';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
           <div className="flex flex-col gap-2 lg:gap-8 sm:gap-4 justify-center items-center text-neutral-900 dark:text-zinc-300 transition-none">
             <DailyForecast />
             <ForecastWeekly />
+            <CurrentForecast />
           </div>
         </div>
       </div>
