@@ -90,6 +90,11 @@
     "forecast.dewpoint": "The dew point is",
     "forecast.rainfall.month": "over the last month",
 
+    "forecast.north": "N",
+    "forecast.east": "E",
+    "forecast.west": "W",
+    "forecast.south": "S",
+
     "form.title" : "Write us",
     "form.mandatory" : "* Mandatory fields",
     "form.object.reason": "Reason for contacting us",

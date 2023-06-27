@@ -88,6 +88,11 @@
     "forecast.dewpoint": "El punto de rocío es",
     "forecast.rainfall.month": "en el último mes",
 
+    "forecast.north": "N",
+    "forecast.east": "E",
+    "forecast.west": "O",
+    "forecast.south": "S",
+
     "form.title": "Escríbanos",
     "form.mandatory": "* Campos obligatorios",
     "form.object.reason": "Motivo de contacto",

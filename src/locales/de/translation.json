@@ -87,6 +87,11 @@
     "forecast.last24": "In den letzten 24 Stunden",
     "forecast.dewpoint": "Der Taupunkt ist",
     "forecast.rainfall.month": "im letzten Monat",
+
+    "forecast.north": "N",
+    "forecast.east": "O",
+    "forecast.west": "W",
+    "forecast.south": "S",
     
     "form.title": "Schreiben Sie uns",
     "form.mandatory": "* Pflichtfelder",

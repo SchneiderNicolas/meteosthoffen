@@ -90,6 +90,11 @@
     "forecast.dewpoint": "Le point de rosée est de",
     "forecast.rainfall.month": "au cours du dernier mois",
 
+    "forecast.north": "N",
+    "forecast.east": "E",
+    "forecast.west": "O",
+    "forecast.south": "S",
+
     "form.title": "Contactez-nous",
     "form.mandatory": "* Champs obligatoires",
     "form.object.reason": "Raison de votre demande",

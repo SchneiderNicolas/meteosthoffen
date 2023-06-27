@@ -83,7 +83,7 @@ const Barometer = ({ pressure }: BarometerProps) => {
       />
       <text
         x={cx}
-        y={cy - 10}
+        y={cy}
         textAnchor="middle"
         dominantBaseline="middle"
         className="fill-current text-3xl font-medium"
@@ -92,7 +92,7 @@ const Barometer = ({ pressure }: BarometerProps) => {
       </text>
       <text
         x={cx}
-        y={cy + 20}
+        y={cy + 30}
         textAnchor="middle"
         dominantBaseline="middle"
         className="fill-current mt-2 text-2xl font-medium"
