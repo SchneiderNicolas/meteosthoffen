@@ -5,6 +5,7 @@ import {
   IItemConfigList,
   IConfig,
 } from '../../constants/interfaces/ICustomFormConfig.interface';
+import { URL_LAMBDA_SEND_EMAIL } from '../../constants/urls';
 import Button from '../Button';
 import CustomFormCheckbox from './CustomFormCheckbox';
 import CustomFormCustomList from './CustomFormCustomList';
@@ -106,7 +107,7 @@ const CustomFormController = ({
         receivers = e.receivers;
       }
     });
-    fetch('https://api.meteosthoffen.fr/sendEmail', {
+    fetch(URL_LAMBDA_SEND_EMAIL, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

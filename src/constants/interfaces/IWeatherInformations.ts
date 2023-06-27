@@ -11,7 +11,11 @@ export interface IValues {
   bar: number;
   hum_out: number;
   rain_day_mm: number;
+  rain_month_mm: number;
   weather_code: number;
+  temp_max: number;
+  temp_min: number;
+  is_day: boolean;
 }
 
 export interface IError {

@@ -77,6 +77,9 @@ const ForecastPerHours = () => {
     dailyForecast?.current_weather.time.slice(11, 13)!,
     10
   );
+  const exactTime =
+    parseInt(dailyForecast?.current_weather.time.slice(11, 13)!, 10) * 100 +
+    parseInt(dailyForecast?.current_weather.time.slice(14, 16)!, 10);
 
   const ListForecastPerHours = dailyForecast?.hourly.temperature_2m.map(
     function (_, index) {
@@ -122,7 +125,7 @@ const ForecastPerHours = () => {
         temperature={dailyForecast?.current_weather.temperature}
         weathercode={dailyForecast?.current_weather.weathercode}
         type={
-          currentTime < sunrise
+          exactTime < sunrise
             ? DayNightType.NIGHT
             : currentTime <= sunset
             ? DayNightType.DAY
