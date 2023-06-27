@@ -48,7 +48,7 @@ const WindWheel = ({ speed, direction }: WindWheelProps) => {
   return (
     <svg
       viewBox="0 0 260 260"
-      className="-mt-2 w-full text-zinc-900 dark:text-white transition-none"
+      className="-mt-5 w-full text-zinc-900 dark:text-white transition-none"
     >
       <defs>
         <marker
