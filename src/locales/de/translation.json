@@ -92,6 +92,15 @@
     "forecast.east": "O",
     "forecast.west": "W",
     "forecast.south": "S",
+
+    "new": "Neu",
+    "waxing.crescent": "Zunehmende Sichel",
+    "first.quarter": "Erstes Viertel",
+    "waxing.gibbous": "Zunehmender Halbmond",
+    "full": "Voll",
+    "waning.gibbous": "Abnehmender Halbmond",
+    "last.quarter": "Letztes Viertel",
+    "waning.crescent": "Abnehmende Sichel",
     
     "form.title": "Schreiben Sie uns",
     "form.mandatory": "* Pflichtfelder",

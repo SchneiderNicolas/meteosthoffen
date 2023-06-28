@@ -5,6 +5,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'mdLarge': '874px',
+      'lg': '1024px',
+      'lgLarge': '1190px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         'bunting': '#1E206D',

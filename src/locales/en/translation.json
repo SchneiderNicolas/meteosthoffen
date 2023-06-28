@@ -95,6 +95,15 @@
     "forecast.west": "W",
     "forecast.south": "S",
 
+    "new": "New",
+    "waxing.crescent": "Waxing Crescent",
+    "first.quarter": "First Quarter",
+    "waxing.gibbous": "Waxing Gibbous",
+    "full": "Full",
+    "waning.gibbous": "Waning Gibbous",
+    "last.quarter": "Last Quarter",
+    "waning.crescent": "Waning Crescent",
+
     "form.title" : "Write us",
     "form.mandatory" : "* Mandatory fields",
     "form.object.reason": "Reason for contacting us",

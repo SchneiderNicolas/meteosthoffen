@@ -93,6 +93,15 @@
     "forecast.west": "O",
     "forecast.south": "S",
 
+    "new": "Nueva",
+    "waxing.crescent": "Creciente Creciente",
+    "first.quarter": "Primer Cuarto",
+    "waxing.gibbous": "Gibosa Creciente",
+    "full": "Llena",
+    "waning.gibbous": "Gibosa Menguante",
+    "last.quarter": "Último Cuarto",
+    "waning.crescent": "Creciente Menguante",
+
     "form.title": "Escríbanos",
     "form.mandatory": "* Campos obligatorios",
     "form.object.reason": "Motivo de contacto",

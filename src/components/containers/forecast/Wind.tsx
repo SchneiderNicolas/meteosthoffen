@@ -70,9 +70,9 @@ const WindWheel = ({ speed, direction }: WindWheelProps) => {
         cy={cy}
         r={radius}
         stroke="black"
-        strokeWidth="6"
+        strokeWidth="8"
         fill="transparent"
-        strokeDasharray="1,2"
+        strokeDasharray="1,2.5"
         strokeLinecap="butt"
         className="stroke-current opacity-70"
       />
@@ -216,7 +216,6 @@ type WindProps = {
 };
 
 const Wind = ({ windSpeed, windDirection }: WindProps) => {
-  console.log(windDirection);
   return (
     <div className="aspect-square">
       <CardContainer

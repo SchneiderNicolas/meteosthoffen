@@ -15,7 +15,6 @@ const CardContainer = ({
   icon,
   square = false,
 }: CardContainerProps) => {
-  // Add square = false here
   const { t } = useTranslation();
   return (
     <div

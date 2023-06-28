@@ -21,13 +21,13 @@ const Humidity = ({ dewPoint, humidity }: HumidityProps) => {
       <div className="flex flex-col justify-between h-full">
         <div className="flex items-start justify-between">
           <div>
-            <div className="text-zinc-900 dark:text-white text-5xl font-medium">
+            <div className="text-zinc-900 dark:text-white text-4xl sm:text-5xl md:text-3xl mdLarge:text-4xl lg:text-3xl lgLarge:text-5xl font-medium">
               {humidity + ' %'}
             </div>
           </div>
         </div>
 
-        <div className="text-zinc-900 dark:text-white text-xl transition-none">
+        <div className="text-zinc-900 dark:text-white text-base sm:text-xl md:text-base mdLarge:text-xl lg:text-sm lgLarge:text-xl transition-none">
           <div>{t('forecast.dewpoint') + ' ' + dewPoint + '°.'}</div>
         </div>
       </div>

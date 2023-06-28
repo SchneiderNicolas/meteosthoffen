@@ -95,6 +95,15 @@
     "forecast.west": "O",
     "forecast.south": "S",
 
+    "new": "Nouvelle lune",
+    "waxing.crescent": "Premier croissant",
+    "first.quarter": "Premier quartier",
+    "waxing.gibbous": "Gibbeuse croissante",
+    "full": "Pleine lune",
+    "waning.gibbous": "Gibbeuse décroissante",
+    "last.quarter": "Dernier quartier",
+    "waning.crescent": "Dernier croissant",
+
     "form.title": "Contactez-nous",
     "form.mandatory": "* Champs obligatoires",
     "form.object.reason": "Raison de votre demande",

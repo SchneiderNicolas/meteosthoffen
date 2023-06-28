@@ -40,21 +40,21 @@ const CurrentWeather = ({
       <div className="flex flex-col justify-between h-full">
         <div className="flex items-start justify-between">
           <div>
-            <div className="text-zinc-900 dark:text-white text-2xl font-medium">
+            <div className="text-zinc-900 dark:text-white text-xl sm:text-2xl lg:text-xl lgLarge:text-2xl font-medium">
               Osthoffen
             </div>
-            <div className="mt-2 text-zinc-900 dark:text-white text-5xl font-medium">
+            <div className="mt-2 text-zinc-900 dark:text-white text-4xl sm:text-5xl md:text-3xl mdLarge:text-4xl lg:text-2xl lgLarge:text-5xl font-medium">
               {temperature.toFixed(1) + '°'}
             </div>
           </div>
           <img
-            className="w-16 h-16 mr-6 mt-8 object-scale-down"
+            className="w-16 h-16 mr-6 mt-2 sm:mt-8 md:mt-3 mdLarge:mt-8 lg:mt-2 lgLarge:mt-8 object-scale-down"
             src={WMOCode.image}
             alt={WMOCode.name}
           />
         </div>
 
-        <div className="text-zinc-900 dark:text-white text-xl transition-none">
+        <div className="text-zinc-900 dark:text-white text-base sm:text-xl md:text-base mdLarge:text-2xl lg:text-sm lgLarge:text-xl font-normal transition-none">
           <div>{t(WMOCode.name)}</div>
           <div className="flex space-x-4 transition-none -ml-1">
             <div className="flex items-center transition-none">
