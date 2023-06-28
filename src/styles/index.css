@@ -12,6 +12,10 @@ body * {
   @apply transition-colors duration-300;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: 'Stretch';
   src: url('../../public/fonts/stretch/StretchPro.otf');

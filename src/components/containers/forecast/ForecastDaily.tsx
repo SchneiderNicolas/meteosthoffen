@@ -122,9 +122,7 @@ const ForecastPerHours = () => {
         temperature={dailyForecast?.current_weather.temperature}
         weathercode={dailyForecast?.current_weather.weathercode}
         type={
-          currentTime < sunrise
-            ? DayNightType.NIGHT
-            : currentTime <= sunset
+          dailyForecast?.current_weather.is_day
             ? DayNightType.DAY
             : DayNightType.NIGHT
         }
@@ -143,6 +141,8 @@ const DailyForecast = () => {
         <IoTimeOutline className="transition-none text-zinc-900 dark:text-zinc-200" />
       }
     >
+      <div id="previsions" className="bg-red-500 -mt-20" />
+      <div className="mt-20" />
       <ForecastPerHours />
     </CardContainer>
   );
