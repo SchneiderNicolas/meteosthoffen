@@ -4,4 +4,5 @@ export interface ICurrentWeather {
   winddirection: number;
   weathercode: number;
   time: string;
+  is_day: number;
 }
