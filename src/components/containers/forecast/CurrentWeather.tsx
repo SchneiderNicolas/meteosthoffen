@@ -48,7 +48,7 @@ const CurrentWeather = ({
             </div>
           </div>
           <img
-            className="w-16 h-16 mr-6 mt-2 sm:mt-8 md:mt-3 mdLarge:mt-8 lg:mt-2 lgLarge:mt-8 object-scale-down"
+            className="w-16 h-16 mr-6 mt-2 sm:mt-6 md:mt-3 mdLarge:mt-6 lg:mt-2 lgLarge:mt-6 object-scale-down"
             src={WMOCode.image}
             alt={WMOCode.name}
           />

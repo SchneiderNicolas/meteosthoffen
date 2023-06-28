@@ -141,6 +141,8 @@ const DailyForecast = () => {
         <IoTimeOutline className="transition-none text-zinc-900 dark:text-zinc-200" />
       }
     >
+      <div id="previsions" className="bg-red-500 -mt-20" />
+      <div className="mt-20" />
       <ForecastPerHours />
     </CardContainer>
   );

@@ -1,8 +1,12 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { IoPartlySunnyOutline, IoCalendarOutline } from 'react-icons/io5';
+import {
+  IoPartlySunnyOutline,
+  IoCalendarOutline,
+  IoMailOutline,
+} from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 type SidebarButtonsProps = {
   isMobile: boolean;
@@ -29,6 +33,28 @@ const SidebarButton = ({ name, icon, onClick }: SidebarButtonProps) => {
 const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClickWeather = () => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleClickPrevision = () => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: '#previsions' } });
+    } else {
+      const previsionElement = document.getElementById('previsions');
+      if (previsionElement) {
+        previsionElement.scrollIntoView({ behavior: 'smooth' });
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    }
+  };
+
   return (
     <div className={classNames('space-y-3 mt-4', isMobile && 'mt-6')}>
       <SidebarButton
@@ -39,7 +65,7 @@ const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
             className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
-        onClick={() => navigate('/')}
+        onClick={handleClickWeather}
       />
       <SidebarButton
         name={t('forecasts')}
@@ -49,7 +75,17 @@ const SidebarButtons = ({ isMobile }: SidebarButtonsProps) => {
             className="text-zinc-900 dark:text-zinc-50 transition-none"
           />
         }
-        onClick={() => navigate('/')}
+        onClick={handleClickPrevision}
+      />
+      <SidebarButton
+        name={t('footer.contact')}
+        icon={
+          <IoMailOutline
+            size={30}
+            className="text-zinc-900 dark:text-zinc-50 transition-none"
+          />
+        }
+        onClick={() => navigate('/contact')}
       />
     </div>
   );

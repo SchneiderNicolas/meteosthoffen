@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DailyForecast from '../components/containers/forecast/ForecastDaily';
 import MainLayout from '../components/containers/MainLayout';
 import ForecastWeekly from '../components/containers/forecast/ForecastWeekly';
 import CurrentForecast from '../components/containers/forecast/ForecastCurrent';
+import { useLocation } from 'react-router-dom';
 
 const Home = () => {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const previsionElement = document.getElementById('previsions');
+      if (previsionElement) {
+        previsionElement.scrollIntoView({ behavior: 'smooth' });
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <MainLayout>
       <div className="flex justify-center items-center">
