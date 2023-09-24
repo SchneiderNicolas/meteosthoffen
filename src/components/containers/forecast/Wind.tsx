@@ -9,6 +9,7 @@ type WindWheelProps = {
 };
 
 const WindWheel = ({ speed, direction }: WindWheelProps) => {
+  direction += 180 % 360;
   const { t } = useTranslation();
 
   const radius = 90;
